@@ -6,7 +6,7 @@
   "minimumCoreVersion": "0.7.3",
   "compatibleCoreVersion": "0.7.9",
   "templateVersion": 2,
-  "author": "Zigmund",
+  "author": "MadHatt3rs",
   "esmodules": [
     "module/cof.js"
   ],
@@ -40,8 +40,8 @@
   "gridUnits": "m",
   "primaryTokenAttribute": "attributes.hp",
   "secondaryTokenAttribute": null,
-  "url": "https://github.com/ZigmundKreud/cof",
-  "manifest": "https://raw.githubusercontent.com/ZigmundKreud/cof/master/system.json",
-  "download": "https://github.com/ZigmundKreud/cof/archive/0.4.2.zip",
+  "url": "https://github.com/MadHatt3rs/cof/tree/develop",
+  "manifest": "https://raw.githubusercontent.com/MadHatt3rs/cof/develop/system.json",
+  "download": "https://github.com/MadHatt3rs/cof/archive/0.4.2.zip",
   "license": "licence.txt"
 }
