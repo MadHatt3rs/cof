@@ -96,6 +96,7 @@
   "COF.ui.applyDoubleDamage": "Apply double damage",
   "COF.ui.applyHealing" : "Apply healing",
   "COF.ui.newEffect" : "New Effect",
+  "COF.ui.modBonus": "Bonus Mod",
 
   "COF.roll.skillcheck" : "Skill check",
   "COF.roll.success" : "Success",
