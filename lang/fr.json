@@ -96,6 +96,7 @@
   "COF.ui.applyDoubleDamage": "Appliquer le double des dégâts",
   "COF.ui.applyHealing" : "Appliquer les soins",
   "COF.ui.newEffect" : "Nouvel Effet",
+  "COF.ui.modBonus": "Bonus Mod",
 
   "COF.roll.skillcheck" : "Test de compétence",
   "COF.roll.success" : "Succès",

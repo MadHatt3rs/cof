@@ -15,6 +15,9 @@
         <div class="field-label">{{ localize 'COF.ui.value' }}</div>
     </div>
     <div class="flex1 center">
+        <div class="field-label">{{ localize 'COF.ui.modBonus' }}</div>
+    </div>
+    <div class="flex1 center">
         <div class="field-label">{{ localize 'COF.ui.mod' }}</div>
     </div>
 </div>
@@ -43,6 +46,9 @@
     </div>
     <div class="flex1 center cell readonly">
         <input class="field-value" name="data.stats.{{id}}.value" readonly="true" type="text" value="{{stat.value}}" data-dtype="Number"/>
+    </div>
+    <div class="flex1 center cell">
+        <input class="field-value" name="data.stats.{{id}}.modBonus" type="text" value="{{#if (isNull stat.modBonus)}}0{{else}}{{numberFormat stat.modBonus decimals=0 sign=true}}{{/if}}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell readonly">
         <input class="field-value" name="data.stats.{{id}}.mod" readonly="true" type="text" value="{{numberFormat stat.mod decimals=0 sign=true}}" data-dtype="Number"/>

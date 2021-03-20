@@ -205,7 +205,7 @@ export class CofActor extends Actor {
         for(const [key, stat] of Object.entries(stats)){
             stat.racial = (species && species.data.bonuses[key]) ? species.data.bonuses[key] : stat.racial;
             stat.value = stat.base + stat.racial + stat.bonus;
-            stat.mod = Stats.getModFromStatValue(stat.value);
+            stat.mod = Stats.getModFromStatValue(stat.value) + stat.modBonus;
         }
 
         attributes.init.base = stats.dex.value;
