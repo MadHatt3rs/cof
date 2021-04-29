@@ -270,7 +270,8 @@
           "effects": {
             "folded": []
           }
-        }
+        },
+        "moduleData": {}
       }
     },
     "character": {
@@ -336,7 +337,8 @@
       "base" : {
         "key": "",
         "description" : "",
-        "source" : ""
+        "source" : "",
+        "moduleData": {}
       },
       "equipment" : {
         "def" : 0,

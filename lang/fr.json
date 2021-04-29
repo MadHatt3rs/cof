@@ -1,4 +1,16 @@
 {
+
+  "ACTOR.TypeCharacter": "Personnage",
+  "ACTOR.TypeNpc": "PNJ",
+  "ACTOR.TypeEncounter": "Rencontre",
+  "ACTOR.TypeLoot": "Vendeur/Coffre",
+
+  "ITEM.TypeItem": "Objet",
+  "ITEM.TypeCapacity": "Capacité",
+  "ITEM.TypeSpecies": "Race",
+  "ITEM.TypeProfile": "Profil",
+  "ITEM.TypePath": "Voie",
+
   "COF.title": "Chroniques Oubliées Fantasy",
 
   "COF.ui.na": "N.C.",
@@ -205,7 +217,7 @@
   "COF.attacks.magic.label": "Attaque Magique",
   "COF.attacks.magic.abbrev": "MAGIQUE",
 
-  "COF.attributes.recovery.label": "RECUP",
+  "COF.attributes.recovery.label": "RECUPERATION",
   "COF.attributes.fortune.label": "CHANCE",
   "COF.attributes.resources.label": "RESSOURCES",
   "COF.attributes.resources.abbrev": "Res",
