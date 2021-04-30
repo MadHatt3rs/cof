@@ -218,4 +218,11 @@ export const registerHandlebarsHelpers = function () {
         }
         return false;
     });
+
+    Handlebars.registerHelper('resourceIsActive', function(haveTarget) {
+        if (game.settings.get("cof", "useMana") || game.settings.get("cof", "useFortune")) {
+            return true;
+        }
+        return false;
+    })
 }

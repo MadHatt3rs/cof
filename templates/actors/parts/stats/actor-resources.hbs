@@ -1,3 +1,4 @@
+{{#if (resourceIsActive)}}
 <div class="flexrow table-header color-resource no-wrap">
     <div class="flex8 center color-resource">
         <div class="field-label ellipsis">{{ localize 'COF.attributes.resources.label' }}</div>
@@ -15,6 +16,7 @@
         <div class="field-label">{{ localize 'COF.ui.current' }}</div>
     </div>
 </div>
+{{/if}}
 {{#if (isEnabled "useMana")}}
 <div class="flexrow no-wrap">
     <div class="flex8 center bg-resource">
