@@ -76,6 +76,7 @@
     // Item Dropdown Properties
     .item-properties {
       margin-top: 3px;
+      margin-bottom: 5px;
     }
 
     // Charged
@@ -86,6 +87,11 @@
       color: $colorTan;
       white-space: nowrap;
     }
+
+    .item-summary h1 {
+      padding: 10px 0px 10px 0px;
+    }
+    
   }
   // Inventory Header
   .inventory-header {

@@ -2114,6 +2114,10 @@ Copied from dnd5e
   white-space: nowrap;
 }
 
+.cof .inventory-list .item .item-summary h1 {
+  padding: 10px 0px 10px 0px;
+}
+
 .cof .inventory-list .inventory-header {
   margin: 2px 0;
   padding: 0;
@@ -2452,8 +2456,4 @@ Copied from dnd5e
   line-height: 16px;
   padding: 0.25em 0.5em;
   border-top: 1px solid #c9c7b8;
-}
-
-.cof .inventory-list .item-summary h1 {
-  padding: 10px 0px 10px 0px;
 }
