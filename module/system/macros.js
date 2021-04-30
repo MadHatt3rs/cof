@@ -16,19 +16,14 @@ export class Macros {
         if(actor){
             let statObj;
             switch(stat){
-                case "for" :
                 case "str" : statObj = eval(`actor.data.data.stats.str`); break;
                 case "dex" : statObj = eval(`actor.data.data.stats.dex`); break;
                 case "con" : statObj = eval(`actor.data.data.stats.con`); break;
                 case "int" : statObj = eval(`actor.data.data.stats.int`); break;
-                case "sag" :
                 case "wis" : statObj = eval(`actor.data.data.stats.wis`); break;
                 case "cha" : statObj = eval(`actor.data.data.stats.cha`); break;
-                case "atc" :
                 case "melee" : statObj = eval(`actor.data.data.attacks.melee`); break;
-                case "atd" :
                 case "ranged" : statObj = eval(`actor.data.data.attacks.ranged`); break;
-                case "atm" :
                 case "magic" : statObj = eval(`actor.data.data.attacks.magic`); break;
                 default :
                     ui.notifications.error("La compétence à tester n'a pas été reconnue.");

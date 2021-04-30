@@ -151,7 +151,7 @@ export const registerHandlebarsHelpers = function () {
 
     Handlebars.registerHelper('displayDifficulty', function(haveTarget) {
         if (game.settings.get("cof", "displayDifficulty")) {
-            if (haveTarget && game.settings.get("cof", "hideDifficulty")) {
+            if (haveTarget && !game.user.isGM) {
                 return false;
             }
             return true;

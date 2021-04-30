@@ -29,7 +29,7 @@ export class CofSkillRoll {
         this._isFumble = (result == 1);
         if(this._difficulty){
             this._isSuccess = r.total >= this._difficulty;
-            if(game.settings.get("cof", "hideDifficulty") && game.user.targets.size > 0){
+            if(game.user.targets.size > 0){
                 this._haveTarget = true;
             }
         }

@@ -818,7 +818,7 @@ Copied from dnd5e
 
 .cof.actor .window-content > form .wrap .main .content {
   margin: 0;
-  padding: 10px 5px 5px 5px;
+  padding: 30px 5px 5px 5px;
   height: 100%;
   min-height: 100%;
   max-height: 100%;
@@ -2101,6 +2101,7 @@ Copied from dnd5e
 
 .cof .inventory-list .item .item-properties {
   margin-top: 3px;
+  margin-bottom: 5px;
 }
 
 .cof .inventory-list .item .item-recharge {
@@ -2451,4 +2452,8 @@ Copied from dnd5e
   line-height: 16px;
   padding: 0.25em 0.5em;
   border-top: 1px solid #c9c7b8;
+}
+
+.cof .inventory-list .item-summary h1 {
+  padding: 10px 0px 10px 0px;
 }
