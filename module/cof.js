@@ -23,7 +23,7 @@ import {UpdateUtils} from "./utils/update-utils.js";
 
 Hooks.once("init", async function () {
 
-    console.info("System Initializing...");
+    console.info("COF | System Initializing...");
     console.info(System.ASCII);
 
     // Register System Settings
@@ -48,8 +48,8 @@ Hooks.once("init", async function () {
     }
 
     // Define custom Entity classes
-    CONFIG.Actor.entityClass = CofActor;
-    CONFIG.Item.entityClass = CofItem;
+    CONFIG.Actor.documentClass = CofActor;
+    CONFIG.Item.documentClass = CofItem;
 
     // Create a namespace within the game global
     game.cof = {
@@ -96,21 +96,5 @@ Hooks.once("init", async function () {
  */
 
 Hooks.once("ready", async () => {
-
-// console.debug("Importing data");
-// DataLoader.loadData("capacities");
-// DataLoader.loadData("encounters");
-// DataLoader.loadData("items");
-// DataLoader.loadData("paths");
-// DataLoader.loadData("profiles");
-// DataLoader.loadData("species");
-// DataLoader.loadData("spells");
-
-    // UpdateUtils.updatePacks();
-    // UpdateUtils.updatePaths();
-    // UpdateUtils.updateProfiles();
-    // UpdateUtils.updateSpecies();
-    // UpdateUtils.updateEncounters();
-
-    console.info("System Initialized.");
+    console.info("COF | System Initialized.");
 });

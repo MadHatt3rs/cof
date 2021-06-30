@@ -44,7 +44,7 @@ export class CofRoll {
      */
     static rollWeapon(data, actor, event) {
         const li = $(event.currentTarget).parents(".item");        
-        let item = actor.getOwnedItem(li.data("itemId"));
+        let item = actor.items.get(li.data("itemId"));
         const itemData = item.data;
     
         const label = itemData.name;
@@ -93,7 +93,7 @@ export class CofRoll {
      */
     static rollSpell(data, actor, event) {
         const li = $(event.currentTarget).parents(".item");
-        let item = actor.getOwnedItem(li.data("itemId"));
+        let item = actor.items.get(li.data("itemId"));
         let label = item.data.name;
         let mod = item.data.data.mod;
         let critrange = item.data.data.critrange;
@@ -109,7 +109,7 @@ export class CofRoll {
      */
     static rollDamage(data, actor, event) {
         const li = $(event.currentTarget).parents(".item");        
-        const item = actor.getOwnedItem(li.data("itemId"));
+        const item = actor.items.get(li.data("itemId"));
         const itemData = item.data;
     
         const label = itemData.name;
@@ -151,7 +151,7 @@ export class CofRoll {
                         const r = new Roll(formula);
                         r.roll();
                         r.toMessage({
-                            user: game.user._id,
+                            user: game.user.id,
                             flavor: "<h2>Roll Hit Points</h2>",
                             speaker: ChatMessage.getSpeaker({ actor: actor })
                         });
@@ -211,7 +211,7 @@ export class CofRoll {
                         const r = new Roll(formula);
                         r.roll();
                         r.toMessage({
-                                user: game.user._id,
+                                user: game.user.id,
                                 flavor: "<h2>Dépense un point de récupération</h2>",
                                 speaker: ChatMessage.getSpeaker({ actor: actor })
                         });
@@ -343,28 +343,36 @@ export class CofRoll {
                         let malus = html.find('input#malus').val();
                         if (!malus) malus = 0;
 
-                        let dmgBonus = html.find("#dmgBonus").val();
-                        let dmgCustomFormula = html.find("#dmgCustomFormula").val();
-                        let dmgBaseFormula = html.find("#dmgFormula").val();
-                        let dmgFormula = (dmgCustomFormula) ? dmgCustomFormula : dmgBaseFormula;
-
-                        if (dmgBonus.indexOf("d") !== -1 || dmgBonus.indexOf("D") !== -1) {
-                            if ((dmgBonus.indexOf("+") === -1) && (dmgBonus.indexOf("-") === -1)){
-                                dmgFormula = dmgFormula.concat('+', dmgBonus);
-                            }
-                            else dmgFormula = dmgFormula.concat(dmgBonus);
+                        // Jet d'attaque uniquement
+                        if(!game.settings.get("cof", "useComboRolls")) {
+                            let r = new CofSkillRoll(label, dice, mod, bonus, malus, diff, critrange, skillDescr);
+                            r.weaponRoll(actor, "", dmgDescr);
                         }
                         else {
-                            const dmgBonusInt = parseInt(dmgBonus);
-                            if (dmgBonusInt > 0) {
-                                dmgFormula = dmgFormula.concat('+', dmgBonusInt);
+                            // Jet combiné attaque et dommages
+                            let dmgBonus = html.find("#dmgBonus") ? html.find("#dmgBonus").val() : 0;
+                            let dmgCustomFormula = html.find("#dmgCustomFormula") ? html.find("#dmgCustomFormula").val() : "";
+                            let dmgBaseFormula = html.find("#dmgFormula") ? html.find("#dmgFormula").val() : "";
+                            let dmgFormula = (dmgCustomFormula) ? dmgCustomFormula : dmgBaseFormula;
+
+                            if (dmgBonus.indexOf("d") !== -1 || dmgBonus.indexOf("D") !== -1) {
+                                if ((dmgBonus.indexOf("+") === -1) && (dmgBonus.indexOf("-") === -1)){
+                                    dmgFormula = dmgFormula.concat('+', dmgBonus);
+                                }
+                                else dmgFormula = dmgFormula.concat(dmgBonus);
                             }
-                            else if (dmgBonusInt < 0) {
-                                dmgFormula = dmgFormula.concat(' ', dmgBonus);
+                            else {
+                                const dmgBonusInt = parseInt(dmgBonus);
+                                if (dmgBonusInt > 0) {
+                                    dmgFormula = dmgFormula.concat('+', dmgBonusInt);
+                                }
+                                else if (dmgBonusInt < 0) {
+                                    dmgFormula = dmgFormula.concat(' ', dmgBonus);
+                                }
                             }
+                            let r = new CofSkillRoll(label, dice, mod, bonus, malus, diff, critrange, skillDescr);
+                            r.weaponRoll(actor, dmgFormula, dmgDescr);
                         }
-                        let r = new CofSkillRoll(label, dice, mod, bonus, malus, diff, critrange, skillDescr);
-                        r.weaponRoll(actor, dmgFormula, dmgDescr);
                     }
                 }
             },
