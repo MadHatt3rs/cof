@@ -428,12 +428,10 @@ div#sidebar .tab#compendium .compendium-pack[data-pack^="cof"] .compendium-foote
 .no-wrap {
   flex-wrap: nowrap !important;
 }
-
 .message-header h2.standard {
   color: #005477;
   font-weight: bold;
 }
-
 .message-header h2.damage {
   color: darkred;
   font-weight: bold;
@@ -462,17 +460,14 @@ div#sidebar .tab#compendium .compendium-pack[data-pack^="cof"] .compendium-foote
   color: darkslategrey;
   font-weight: bold;
 }
-
 .message-content .fumble {
   color: red;
   font-weight: bold;
 }
-
 .message-content .critical {
   color: green;
   font-weight: bold;
 }
-
 .chat-message .btn {
   cursor: pointer;
   margin: 0 0 5px 2px;
@@ -1581,11 +1576,9 @@ Copied from dnd5e
   color: #7a7971;
   white-space: nowrap;
 }
-
 .cof .inventory-list .item .item-summary h1 {
   padding: 10px 0px 10px 0px;
 }
-
 .cof .inventory-list .inventory-header {
   margin: 2px 0;
   padding: 0;
