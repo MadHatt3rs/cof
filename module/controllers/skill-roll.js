@@ -13,7 +13,7 @@ export class CofSkillRoll {
         this._difficulty = difficulty;
         this._haveTarget = false;
         this._critrange = critrange;
-        this._formula = (this._total === 0) ? this._dice : ((this._totalBonusMalus === 0) ? `${this._dice} + ${this._mod}`: `${this._dice} + ${this._mod} + ${this._totalBonusMalus}`);
+        this._formula = (this._total === 0) ? this._dice : ((this._totalBonusMalus === 0) ? `${this._dice} ${this._mod}`: `${this._dice} ${this._mod} + ${this._totalBonusMalus}`);
         this._isCritical = false;
         this._isFumble = false;
         this._isSuccess = false;

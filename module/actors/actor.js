@@ -14,9 +14,11 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */   
     constructor(...args) {
         let data = args[0];
-        if (data.img !== undefined && COF.actorIcons[data.type]){
+        
+        if (!data.img && COF.actorIcons[data.type]){
             data.img = COF.actorIcons[data.type];
-            data.token.img = COF.actorIcons[data.type];
+            if (!data.token) data.token = {};
+            if (!data.token.img) data.token.img = COF.actorIcons[data.type];
         }
         super(...args);
     }
@@ -150,7 +152,13 @@ export class CofActor extends Actor {
 
     /* -------------------------------------------- */
 
-    _prepareDerivedEncounterData(actorData) { }
+    _prepareDerivedEncounterData(actorData) { 
+        let attributes = actorData.data.attributes;
+        
+        // Points de vie
+        if (attributes.hp.value > attributes.hp.max) attributes.hp.value = attributes.hp.max;
+        if (attributes.hp.value < 0) attributes.hp.value = 0;
+    }
 
     /* -------------------------------------------- */
 
@@ -461,7 +469,7 @@ export class CofActor extends Actor {
         // Caractéristique et calcul selon le profil
         let magicMod = intMod;
         if (profile) {
-            switch (profile.data.spellcasting) {
+            switch (profile.data.data.spellcasting) {
                 case "wis":
                     magicMod = wisMod;
                     break;
@@ -472,10 +480,13 @@ export class CofActor extends Actor {
                     magicMod = intMod;
                     break;
             }
-            if (profile.data.mpfactor === "2") {
+            if (profile.data.data.mpfactor === "2") {
                 pm = (2 * level) + magicMod;
             }
-            else pm = level + magicMod;
+            else if (profile.data.data.mpfactor === "1") {
+                pm = level + magicMod;
+            }
+            else pm = magicMod;
         }
 
         if (pm < 0) pm = 0;
