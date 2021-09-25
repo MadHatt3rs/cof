@@ -218,10 +218,19 @@ export const registerHandlebarsHelpers = function () {
         return false;
     });
 
+    Handlebars.registerHelper('isNotLimited', function(options){
+        return !options?.limited;    
+    });
+
+    Handlebars.registerHelper('isNotLimitedEncounter', function(options){
+        return !(options?.limited && options?.actor?.type === "encounter");    
+    });
+
     Handlebars.registerHelper('resourceIsActive', function(haveTarget) {
         if (game.settings.get("cof", "useMana") || game.settings.get("cof", "useFortune")) {
             return true;
         }
         return false;
-    })
+    });
+    
 }
