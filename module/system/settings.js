@@ -6,8 +6,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useFortune", {
@@ -16,8 +15,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: true,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useMana", {
@@ -26,8 +24,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useDamageResistance", {
@@ -36,8 +33,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "displayDifficulty", {
@@ -46,8 +42,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: true,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useComboRolls", {
@@ -56,8 +51,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: true,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useVarInit", {
@@ -66,8 +60,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useIncompetentPJ", {
@@ -76,8 +69,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: false,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useOverload", {
@@ -86,8 +78,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: true,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });   
 
     game.settings.register("cof", "displayChatDamageButtonsToAll", {
@@ -96,8 +87,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
     
     game.settings.register("cof", "moveItem", {
@@ -110,8 +100,7 @@ export const registerSystemSettings = function() {
             "1" : "Déplacer l'objet"
         },
         default: "0",
-        config: true,
-        onChange: lang => window.location.reload()
+        config: true
     });    
 
     game.settings.register("cof", "lockItems",{
@@ -120,8 +109,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()        
+        type: Boolean        
     });
 
     game.settings.register("cof", "checkFreeHandsBeforeEquip", {
@@ -129,13 +117,26 @@ export const registerSystemSettings = function() {
         hint: "Vérifier que le personnage a assez de mains libres pour équiper un objet (Maintenir MAJ pour ignorer le contrôle)",
         scope: "world",
         config: true,
-        default: "0",
+        default: "none",
         type: String,
         choices: {
-            "0" : "Ne pas vérifier",
-            "1" : "Vérification (ignorable par tous)",
-            "2" : "Vérification (ignorable uniquement par le MJ)"
-        },        
-        onChange: lang => window.location.reload()
+            "none" : "Ne pas vérifier",
+            "all" : "Vérification (ignorable par tous)",
+            "gm" : "Vérification (ignorable uniquement par le MJ)"
+        }
+    });
+    
+    game.settings.register("cof", "checkArmorSlotAvailability", {
+        name: "Vérification des emplacements d'armure",
+        hint: "Vérifier la disponibilité d'un emplacement avant d'équiper une armure (Maintenir MAJ pour ignorer le contrôle)",
+        scope: "world",
+        config: true,
+        default: "none",
+        type: String,
+        choices: {
+            "none" : "Ne pas vérifier",
+            "all" : "Vérification (ignorable par tous)",
+            "gm" : "Vérification (ignorable uniquement par le MJ)"
+        }
     });    
 };
