@@ -69,7 +69,7 @@ export class CofRoll {
         let label = item.find(".weapon-name").text();
         let mod = item.find(".weapon-mod").val();
         let critrange = item.find(".weapon-critrange").val();
-        let dmg = item.find(".weapon-dmg").val();
+        let dmg = item.find(".weapon-dmg").val();actor.data.data.weapons
         return this.rollWeaponDialog(actor, label, mod, 0, 0, critrange, dmg, 0);
     }
 

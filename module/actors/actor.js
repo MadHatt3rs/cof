@@ -850,11 +850,19 @@ export class CofActor extends Actor {
      * @description
      * @returns {Promise}
      */
-     rollWeapon(item, options = {}) {
+    rollWeapon(item, options = {}) {
         const { bonus = 0, malus = 0, dmgBonus = 0, dmgOnly = false } = options;
 
         return Macros.rollItemMacro(item.id, item.name, item.type, bonus, malus, dmgBonus, dmgOnly);
      }
+
+    rollEncounterWeapon(item, options = {}) {
+        let label = item.name;
+        let mod = item.mod;
+        let critrange = item.critrange;
+        let dmg = item.dmg;
+        return CofRoll.rollWeaponDialog(this.actor, label, mod, 0, 0, critrange, dmg, 0);
+    }
     
     /**
      * 
