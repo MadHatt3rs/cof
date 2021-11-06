@@ -228,4 +228,43 @@ export default function registerHooks() {
         // On met à jour l'effet en fonction du fait que l'item est équipé ou non
         activeEffect.update({disabled: !itemData.worn});
     });
+
+    /**
+     * Lancée automatique de l'initiative en début de combat
+     * 
+     * Si l'initiative variable est utilisé ajoute automatiquemment 
+     * 1d6x au début du round suivant et l'affiche dans le chat
+     */
+    Hooks.on("preUpdateCombat", (combat, type) => {
+        
+        if (type.round === 1) {
+            combat.resetAll().then(() => {
+                combat.rollAll({updateTurn: false});
+            });
+        } 
+        else if (game.settings.get("cof", "useVarInit") && type.round > 1) {
+            const combatants = combat.combatants.contents
+            const rollMode = game.settings.get("core", "rollMode");
+            for (const combatant of combatants) {
+                const roll = combatant.getInitiativeRoll('1d6x +' + combatant.data.initiative);    
+                const messageData = foundry.utils.mergeObject({
+                    speaker: {
+                        scene: combat.scene.id,
+                        actor: combatant.actor?.id,
+                        token: combatant.token?.id,
+                        alias: combatant.name
+                    },
+                    flavor: game.i18n.format("COMBAT.RollsInitiative", {name: combatant.name}),
+                    flags: {"core.initiativeRoll": true}
+                });
+                roll.toMessage(messageData, {
+                    create: true,
+                    rollMode: combatant.hidden && (rollMode === "roll") ? "gmroll" : rollMode
+                });
+                combatant.update({initiative: roll.total});
+            }
+        } 
+        else return;
+
+    });
 }

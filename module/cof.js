@@ -19,7 +19,7 @@ import {System, COF} from "./system/config.js";
 import {Macros} from "./system/macros.js";
 import registerHooks from "./system/hooks.js";
 import {CofLootSheet} from "./actors/loot-sheet.js";
-import {UpdateUtils} from "./utils/update-utils.js";
+import {_getInitiativeFormula} from "./system/combat.js";
 
 Hooks.once("init", async function () {
 
@@ -33,19 +33,7 @@ Hooks.once("init", async function () {
      * Set an initiative formula for the system
      * @type {String}
      */
-
-    if(game.settings.get("cof", "useVarInit")){
-        CONFIG.Combat.initiative = {
-            formula: "1d6x + @attributes.init.value + @stats.wis.value/100",
-            decimals: 2
-        };
-    }
-    else {
-        CONFIG.Combat.initiative = {
-            formula: "@attributes.init.value + @stats.wis.value/100",
-            decimals: 2
-        };
-    }
+    Combatant.prototype._getInitiativeFormula = _getInitiativeFormula;
 
     // Record Configuration Values
     CONFIG.COF = COF;
