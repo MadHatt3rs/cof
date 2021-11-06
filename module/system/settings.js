@@ -2,7 +2,7 @@ export const registerSystemSettings = function() {
 
     game.settings.register("cof", "useRecovery", {
         name: "Points de Récupération",
-        hint: "Utiliser la règle optionnelle des Points de Récupération (PR).",
+        hint: "Utiliser la règle avancée des Points de Récupération (PR) (p.77).",
         scope: "world",
         config: true,
         default: false,
@@ -11,7 +11,7 @@ export const registerSystemSettings = function() {
 
     game.settings.register("cof", "useFortune", {
         name: "Points de Chance",
-        hint: "Utiliser la règle optionnelle des Points de Chance (PC).",
+        hint: "Utiliser la règle avancée des Points de Chance (PC) (p.77).",
         scope: "world",
         config: true,
         default: true,
@@ -20,7 +20,7 @@ export const registerSystemSettings = function() {
 
     game.settings.register("cof", "useMana", {
         name: "Points de Mana",
-        hint: "Utiliser la règle optionnelle des Points de Mana (PM).",
+        hint: "Utiliser la règle avancée des Points de Mana (PM) (p.79).",
         scope: "world",
         config: true,
         default: false,
@@ -56,7 +56,7 @@ export const registerSystemSettings = function() {
 
     game.settings.register("cof", "useVarInit", {
         name: "Utiliser la règle de l'initiative variable",
-        hint: "Le résultat d’un d6 explosif est ajouté à l'initiative : ajout et relance sur 6.",
+        hint: "Le résultat d’un d6 explosif est ajouté à l'initiative à chaque nouveau round (p.173).",
         scope: "world",
         config: true,
         default: false,
@@ -65,7 +65,7 @@ export const registerSystemSettings = function() {
 
     game.settings.register("cof", "useIncompetentPJ", {
         name: "Utiliser la règle de l'incompétence des PJ",
-        hint: "Une arme ou une armure non maitrisée donne différents malus.",
+        hint: "Une arme ou une armure non maitrisée donne différents malus (p.62).",
         scope: "world",
         config: false,
         default: false,
@@ -73,8 +73,8 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "useOverload", {
-        name: "Utiliser la règle de l'encombrement",
-        hint: "L'encombrement de l'armure cause des malus pour les jets de DEX.",
+        name: "Malus d'armue",
+        hint: "Le malus d'armure octroient des malus pour les tests de DEX. (p.65)",
         scope: "world",
         config: true,
         default: true,
