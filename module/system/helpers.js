@@ -84,7 +84,7 @@ export const registerHandlebarsHelpers = function () {
         return val == null;
     });
 
-    Handlebars.registerHelper('isEmpty', function (list) {
+    Handlebars.registerHelper('pathIsEmpty', function (list) {
         if (list) return list.length == 0;
         else return 0;
     });
