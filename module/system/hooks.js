@@ -187,9 +187,19 @@ export default function registerHooks() {
                 html.find(".apply-dmg").each((i, btn) => {
                     btn.style.display = "none"
                   });
+                html.find(".dr-checkbox").each((i, btn) => {
+                    btn.style.display = "none"
+                });
             }        
         }
-        chat.highlightCriticalSuccessFailure(message, html, data);        
+        chat.highlightCriticalSuccessFailure(message, html, data);              
+        // Affiche ou non la difficulté
+        const displayDifficulty = game.settings.get("cof", "displayDifficulty");
+        if (displayDifficulty === "none" || (displayDifficulty === "gm" && !game.user.isGM)) {
+            html.find(".display-difficulty").each((i, elt) => {
+                elt.remove();
+            });
+        }        
     });
 
     /**
