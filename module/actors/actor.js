@@ -722,7 +722,7 @@ export class CofActor extends Actor {
      *  COF : return "cof" en attendant l'implémentation
      * @returns {string} retourne la chaine de caractères utilisée pour le lancer de dés
      */      
-    computeDm(itemDmgBase, itemDmgStat, itemDmgBonus, skillDmgBonus) {
+    computeDm(itemDmgBase, itemDmgStat, itemDmgBonus, skillDmgBonus = 0) {
         let total = itemDmgBase;
         
         const fromStat = eval("this.data.data." + itemDmgStat);
