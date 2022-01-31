@@ -1,3 +1,18 @@
+9.245.1
+-------
+Corrections
+- Finalisation de la localisation en anglais
+
+Nouvelles fonctionnalités
+- La taille des tokens au moment de la pose sur le canvas dépend de la valeur de size
+- Un token d'un PJ a automatiquement les options Peut voir et Lié au personnage
+
+9.238.1
+-------
+Corrections
+- Clés manquantes en anglais dans le type de bonus d'un Active Effect
+- Cas où la RD est supérieure aux dommages subis
+
 9.238.1
 -------
 Nouvelles fonctionnalités
