@@ -87,8 +87,8 @@ export default function registerHooks() {
                     img: item.img,
                     command : command
                 }, {displaySheet: false})
-                game.user.assignHotbarMacro(macro, slot);
-            }            
+            }
+            game.user.assignHotbarMacro(macro, slot);       
         }
         // Create a macro to open the actor sheet of the actor dropped on the hotbar
         else if (data.type == "Actor") {
@@ -101,9 +101,9 @@ export default function registerHooks() {
                     type: "script",
                     img: actor.data.img,
                     command: command
-                }, {displaySheet: false});
-                game.user.assignHotbarMacro(macro, slot);
+                }, {displaySheet: false});     
             }
+            game.user.assignHotbarMacro(macro, slot);
         }
         // Create a macro to open the journal sheet of the journal dropped on the hotbar
         else if (data.type == "JournalEntry") {
@@ -117,8 +117,8 @@ export default function registerHooks() {
                     img: (journal.data.img) ? journal.data.img : "icons/svg/book.svg",
                     command: command
                 }, {displaySheet: false});
-                game.user.assignHotbarMacro(macro, slot);
             }
+            game.user.assignHotbarMacro(macro, slot);
         }
         else if (data.type == "Weapon"){
             let weapon = data.data;
@@ -130,9 +130,9 @@ export default function registerHooks() {
                     type : "script",
                     img: "systems/cof/ui/icons/attack.webp",
                     command : command
-                }, {displaySheet: false});
-                game.user.assignHotbarMacro(macro, slot);   
-            }                     
+                }, {displaySheet: false});     
+            }  
+            game.user.assignHotbarMacro(macro, slot);                    
         }
         return false;
     });
