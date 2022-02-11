@@ -31,8 +31,11 @@ export class Capacity {
      * @returns 
      */
     static addToActor(actor, capacity) {
-        capacity = capacity instanceof Array ? capacity : [capacity];
-        return actor.createEmbeddedDocuments("Item", capacity);
+        let exist = actor.items.some( item => item.id === capacity._id);
+        if (!exist) {
+            capacity = capacity instanceof Array ? capacity : [capacity];
+            return actor.createEmbeddedDocuments("Item", capacity);
+        }
     }
 
     /**
