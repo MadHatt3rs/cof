@@ -21,6 +21,14 @@
       "path": "./packs/macros.db",
       "type": "Macro",
       "tag" : "macro"
+    },
+    {
+      "name": "conditions",
+      "label": "Conditions",
+      "system": "cof",
+      "path": "./packs/conditions.db",
+      "type": "JournalEntry",
+      "tag" : "journalEntry"
     }
   ],
   "languages": [
