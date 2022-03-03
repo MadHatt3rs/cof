@@ -20,15 +20,6 @@ export default function registerHooks() {
                 }
             },
             {
-                name: game.i18n.localize("COF.ui.applyDamage"),
-                icon: '<i class="fas fa-user-minus"></i>',
-                condition: canApplyHealing,
-                callback: li => {
-                    const dmg = parseInt(li.find(".dice-total").text());
-                    Hitpoints.applyToTargets(-dmg);
-                }
-            },
-            {
                 name: game.i18n.localize("COF.ui.applyHalfDamage"),
                 icon: '<i class="fas fa-user-shield"></i>',
                 condition: canApplyDamage,
@@ -55,6 +46,15 @@ export default function registerHooks() {
                     Hitpoints.applyToTargets(dmg);
                 }
             },
+            {
+                name: game.i18n.localize("COF.ui.applyDamage"),
+                icon: '<i class="fas fa-user-minus"></i>',
+                condition: canApplyHealing,
+                callback: li => {
+                    const dmg = parseInt(li.find(".dice-total").text());
+                    Hitpoints.applyToTargets(-dmg);
+                }
+            },            
             {
                 name: game.i18n.localize("COF.ui.applyHealing"),
                 icon: '<i class="fas fa-user-plus"></i>',
