@@ -51,7 +51,7 @@
     </div>
 </div>
 
-{{#if displayDifficulty}}
+{{#if (displayDifficulty haveTarget)}}
     <hr/>
     <!-- DIFFICULTY -->
     <div class="row flexrow" style="margin-bottom: 5px;">
@@ -62,6 +62,8 @@
             <input class="field-value" id="difficulty" name="difficulty" type="text" value="{{difficulty}}" data-dtype="Number"/>
         </div>
     </div>
+    {{else}}
+        <input class="field-value" id="difficulty" name="difficulty" type="hidden" value="{{difficulty}}" data-dtype="Number"/>
 {{/if}}
 
 {{#if hasDescription}}

@@ -321,9 +321,11 @@ export class CofRoll {
     static async skillRollDialog(actor, label, mod, bonus, malus, critrange, superior = false, onEnter = "submit", description, weakened = false) {
         const rollOptionTpl = 'systems/cof/templates/dialogs/skillroll-dialog.hbs';
         let diff = null;
+        let haveTarget = false;
         const displayDifficulty = game.settings.get("cof", "displayDifficulty");
         if ( displayDifficulty !== "none" && game.user.targets.size > 0) {
             diff = [...game.user.targets][0].actor.data.data.attributes.def.value;
+            haveTarget = true;
         }
         const isDifficultyDisplayed = displayDifficulty === "all" || (displayDifficulty === "gm" && game.user.isGM);
         const rollOptionContent = await renderTemplate(rollOptionTpl, {
@@ -332,6 +334,7 @@ export class CofRoll {
             malus: malus,
             critrange: critrange,
             difficulty: diff,
+            haveTarget: haveTarget,
             displayDifficulty: isDifficultyDisplayed,
             superior: superior,
             hasDescription : description && description.length > 0,
@@ -386,6 +389,7 @@ export class CofRoll {
         const rollOptionTpl = 'systems/cof/templates/dialogs/roll-weapon-dialog.hbs';
         let diff = null;
         let isDifficultyDisplayed = true;
+        let haveTarget = false;
         
         if (difficulty !== null) {
             diff = difficulty;   
@@ -394,6 +398,7 @@ export class CofRoll {
             const displayDifficulty = game.settings.get("cof", "displayDifficulty");
             if ( displayDifficulty !== "none" && game.user.targets.size > 0) {
                 diff = [...game.user.targets][0].actor.data.data.attributes.def.value;
+                haveTarget = true;
             }
             isDifficultyDisplayed = displayDifficulty === "all" || (displayDifficulty === "gm" && game.user.isGM);
         }
@@ -405,6 +410,7 @@ export class CofRoll {
             malus: malus,
             critrange: critrange,
             difficulty: diff,
+            haveTarget: haveTarget,
             displayDifficulty: isDifficultyDisplayed,
             dmgFormula: dmgFormula,
             dmgBonus: dmgBonus,

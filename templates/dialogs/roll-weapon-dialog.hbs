@@ -51,9 +51,9 @@
     </div>
 </div>
 
-<!-- DIFFICULTY -->
-{{#if displayDifficulty}}
-    <hr/>    
+{{#if (displayDifficulty haveTarget)}}
+    <!-- DIFFICULTY -->
+    <hr/>
     <div class="row flexrow" style="margin-bottom: 5px;">
         <div class="flex1 center bg-darkslate">
             <span class="field-label">{{localize 'COF.ui.difficulty'}}</span>
@@ -61,16 +61,9 @@
         <div class="flex1 center cell">
             <input class="field-value" id="difficulty" name="difficulty" type="text" value="{{difficulty}}" data-dtype="Number"/>
         </div>
-    </div> 
-{{else}}
-    <div class="row flexrow" style="margin-bottom: 5px; display:none;">
-        <div class="flex1 center bg-darkslate">
-            <span class="field-label">{{localize 'COF.ui.difficulty'}}</span>
-        </div>
-        <div class="flex1 center cell">
-            <input class="field-value" id="difficulty" name="difficulty" type="text" value="{{difficulty}}" data-dtype="Number"/>
-        </div>
     </div>
+    {{else}}
+        <input class="field-value" id="difficulty" name="difficulty" type="hidden" value="{{difficulty}}" data-dtype="Number"/>
 {{/if}}
 
 {{#if hasSkillDescr}}
