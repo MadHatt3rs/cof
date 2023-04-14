@@ -1,3 +1,46 @@
+10.291.7
+--------
+- Prise en compte de la réduction aux dégâts des objets qui apportent une résistance aux dégâts
+
+10.291.6
+--------
+- Correction de l'affichage de la liste déroulante dans les effets
+
+10.291.5
+--------
+- Prise en compte des options de la macro Item dans la résolution d'une capacité d'attaque
+- Ajout d'un champ pour la saisie d'un bonus de compétence pour une capacité d'attaque
+
+10.291.4
+--------
+- Correction mineure
+
+10.291.3
+--------
+Corrections
+- Correction sur le statut de l'équipement porté
+- Correction mineure
+
+10.291.2
+--------
+Corrections
+- Correction de l'affichage de la description pour toutes les fiches de type Actor
+
+10.291.1
+--------
+Nouvelles fonctionnalités
+- Système compatible avec Foundry v10
+- Nouvelle option du système pour désactiver le son de certaines actions et changement de l'ordre des options
+- Ajout d'une action sur les onglets inventaire et capacités pour envoyer des informations sur l'objet dans la fenêtre de chat
+- Ajout des infots de l'onglet combat dans l'onglet inventaire
+- Statistique anonyme de la création d'un monde
+
+9.269.3
+-------
+Corrections
+- Recharge la page si l'option de l'initiative est modifiée
+- Corrige le bonus au jet pour CON/INT/SAG/CHA
+
 9.269.2
 -------
 Corrections
