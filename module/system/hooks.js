@@ -1,7 +1,6 @@
 import { CofActor } from "../actors/actor.js";
 import { Hitpoints } from "../controllers/hitpoints.js";
 import { CharacterGeneration } from "../system/chargen.js";
-import * as chat from "./chat.js";
 import { COF } from "./config.js";
 import { Macros } from "./macros.js";
 
@@ -132,8 +131,7 @@ export default function registerHooks() {
                     btn.style.display = "none"
                 });
             }        
-        }
-        chat.highlightCriticalSuccessFailure(message, html, data);              
+        }            
         // Affiche ou non la difficulté
         const displayDifficulty = game.settings.get("cof", "displayDifficulty");
         if (displayDifficulty === "none" || (displayDifficulty === "gm" && !game.user.isGM)) {
