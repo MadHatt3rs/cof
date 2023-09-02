@@ -5,4 +5,5 @@ node_modules
 _data
 package-lock.json
 .github/
-packs/macros/
+/packs/conditions
+/packs/macros
